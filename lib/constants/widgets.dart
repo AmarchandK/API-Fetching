@@ -8,13 +8,13 @@ Divider customDivider = const Divider(
 
 class Specs extends StatelessWidget {
   const Specs({super.key, required this.tittle, required this.content});
- final String content;
- final String tittle;
+  final String content;
+  final String tittle;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.end,
-      children: [subTittleText(tittle), h5, contents(content)],
+      children: [contentText(tittle), h5, contents(content)],
     );
   }
 }
@@ -26,18 +26,22 @@ Text contents(String text) {
   );
 }
 
-Text subTittleText(String text) {
-  return Text(
-    text,
-    style: const TextStyle(color: Colors.grey, fontWeight: FontWeight.w500),
-  );
-}
-
-Text headingText(String text) {
+Widget contentText(String text) {
   return Text(
     text,
     style: const TextStyle(
-        color: Colors.black, fontWeight: FontWeight.bold, fontSize: 25),
+        color: Colors.grey, fontWeight: FontWeight.w500, fontSize: 18),
+  );
+}
+
+Widget headingText(String text) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(vertical: 10),
+    child: Text(
+      text,
+      style: const TextStyle(
+          color: Colors.black, fontWeight: FontWeight.bold, fontSize: 25),
+    ),
   );
 }
 

@@ -19,33 +19,30 @@ class CustomAppBar extends StatelessWidget {
         return CachedNetworkImage(
           imageUrl: image,
           imageBuilder: (context, imageProvider) => Container(
-            width: double.infinity,
-            height: heightSize(context) - 400,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              image: DecorationImage(
-                image: imageProvider,
-                fit: BoxFit.cover,
-              ),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  children: [
-                    SizedBox(height: heightSize(context) * 0.05),
-                    GestureDetector(
-                        onTap: () {
-                          Get.back();
-                        },
-                        child: const Icon(Icons.arrow_back)),
-                  ],
+              width: double.infinity,
+              height: heightSize(context) - 400,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: imageProvider,
+                  fit: BoxFit.cover,
                 ),
-              ],
-            ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 30),
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: IconButton(
+                      onPressed: () => Get.back(),
+                      icon: const Icon(
+                        CupertinoIcons.back,
+                        size: 35,
+                      )),
+                ),
+              )),
+          placeholder: (context, url) => SizedBox(
+            height: heightSize(context) - 400,
+            child: const CupertinoActivityIndicator(),
           ),
-          placeholder: (context, url) => const CupertinoActivityIndicator(),
           errorWidget: (context, url, error) => const Center(
             child: Icon(Icons.error),
           ),

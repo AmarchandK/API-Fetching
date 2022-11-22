@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:intl/intl.dart';
 
-import '../view/overview/description_page.dart';
+import '../view/overview/overview_page.dart';
 
 class OverViewProvider extends ChangeNotifier {
   String appbarImage = '';
@@ -29,7 +29,7 @@ class OverViewProvider extends ChangeNotifier {
         id: id, url: ConstStrings.url, authTocken: ConstStrings.authTocken);
     if (adsResponse != null) {
       _assignVariables(adsResponse);
-      Get.to(() => const Description());
+      Get.to(() => const OverView());
     }
   }
 
