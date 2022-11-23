@@ -8,6 +8,7 @@
 .buildlog/
 .history
 .svn/
+lib/constants/const_strings.dart
 migrate_working_dir/
 
 # IntelliJ related
