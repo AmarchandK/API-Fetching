@@ -1,5 +1,6 @@
 import 'package:deep_nucleus/constants/sizes.dart';
 import 'package:deep_nucleus/constants/widgets.dart';
+import 'package:deep_nucleus/view/overview/widgets/buttons.dart';
 import 'package:deep_nucleus/view/overview/widgets/custom_appbar.dart';
 import 'package:deep_nucleus/view/overview/widgets/map_view.dart';
 import 'package:deep_nucleus/view/overview/widgets/mensions.dart';
@@ -73,10 +74,10 @@ class OverView extends StatelessWidget {
                                   provider.adDetail.price == 0
                                       ? 'Price Not Available !'
                                       : '₹ ${provider.adDetail.price}',
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontSize: 21,
                                       fontWeight: FontWeight.w600,
-                                      color: Colors.grey[700]),
+                                      color: Colors.yellowAccent),
                                 ),
                                 twoColorText('Posted on ', provider.adDate)
                               ],
@@ -87,6 +88,8 @@ class OverView extends StatelessWidget {
                             MapView(provider: provider),
                             headingText('From'),
                             ProfileSection(provider: provider),
+                            const Buttons(),
+                            h20,
                           ],
                         ),
                       ),
